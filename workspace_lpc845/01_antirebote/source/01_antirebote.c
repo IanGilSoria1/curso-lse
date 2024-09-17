@@ -4,7 +4,7 @@
 // Etiqueta para el pulsador USER
 #define USER_BTN	4
 // Etiqueta para el LED azul
-#define LED_BLUE	1
+#define LED_BLUE	2
 
 /*
  * @brief   Application entry point.
