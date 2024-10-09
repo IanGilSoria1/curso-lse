@@ -7,13 +7,13 @@
 #define DIGITO 8
 #define DIGITA 9
 //Etiqueta segmento 1 de luz
-#define SEGMENTA 11
-#define SEGMENTE 10
-#define SEGMENTI 6
-#define SEGMENTO 14
-#define SEGMENTU 0
-#define SEGMENTAA 13
-#define SEGMENTEE 15
+#define A 10
+#define B 11
+#define C 6
+#define D 14
+#define E 0
+#define F 13
+#define G 15
 
 /*
  * @brief   Application entry point.
@@ -37,55 +37,44 @@ int main(void) {
     GPIO_PinInit(GPIO, 0, DIGITO , &out_config);
     GPIO_PinInit(GPIO, 0, DIGITA , &out_config);
     //Configuro el pin 8,9,10,11,12,13,14 y 15 como salida
-    GPIO_PinInit(GPIO, 0, SEGMENTA , &out_config);
-    GPIO_PinInit(GPIO, 0, SEGMENTE , &out_config);
-    GPIO_PinInit(GPIO, 0, SEGMENTI , &out_config);
-    GPIO_PinInit(GPIO, 0, SEGMENTO , &out_config);
-    GPIO_PinInit(GPIO, 0, SEGMENTU , &out_config);
-    GPIO_PinInit(GPIO, 0, SEGMENTAA , &out_config);
-    GPIO_PinInit(GPIO, 0, SEGMENTEE , &out_config);
+    GPIO_PinInit(GPIO, 0, A , &out_config);
+    GPIO_PinInit(GPIO, 0, B , &out_config);
+    GPIO_PinInit(GPIO, 0, C , &out_config);
+    GPIO_PinInit(GPIO, 0, D , &out_config);
+    GPIO_PinInit(GPIO, 0, E , &out_config);
+    GPIO_PinInit(GPIO, 0, F , &out_config);
+    GPIO_PinInit(GPIO, 0, G , &out_config);
+
+
+    GPIO_PinWrite(GPIO, 0, DIGITA, 0);
+    GPIO_PinWrite(GPIO, 0, DIGITO, 0);
 
     while(1) {
 
     	// Verifico el estado del pulsador (tiene pull-up)
     	while (!GPIO_PinRead(GPIO, 0, USER_BTN)) {
-			GPIO_PinWrite(GPIO, 0, DIGITO, 0);
-			GPIO_PinWrite(GPIO, 0, DIGITA, 0);
-			GPIO_PinWrite(GPIO, 0, SEGMENTA, 0);
-			for (uint32_t i = 0; i <100000; i++);
-			GPIO_PinWrite(GPIO, 0, SEGMENTA, 1);
-			GPIO_PinWrite(GPIO, 0, SEGMENTE, 0);
-			for (uint32_t i = 0; i <100000; i++)
-			GPIO_PinWrite(GPIO, 0, SEGMENTE, 1);
-			GPIO_PinWrite(GPIO, 0, SEGMENTI, 0);
-			for (uint32_t i = 0; i <100000; i++)
-			GPIO_PinWrite(GPIO, 0, SEGMENTI, 1);
-			GPIO_PinWrite(GPIO, 0, SEGMENTO, 0);
-			for (uint32_t i = 0; i <100000; i++)
-			GPIO_PinWrite(GPIO, 0, SEGMENTO, 1);
-			GPIO_PinWrite(GPIO, 0, SEGMENTU, 0);
-			for (uint32_t i = 0; i <100000; i++)
-			GPIO_PinWrite(GPIO, 0, SEGMENTU, 1);
-			GPIO_PinWrite(GPIO, 0, SEGMENTAA, 0);
-			for (uint32_t i = 0; i <100000; i++)
-			GPIO_PinWrite(GPIO, 0, SEGMENTAA, 1);
-			GPIO_PinWrite(GPIO, 0, SEGMENTEE, 0);
-			for (uint32_t i = 0; i <100000; i++);
-			GPIO_PinWrite(GPIO, 0, SEGMENTEE, 1);
+    		GPIO_PinWrite(GPIO, 0, F, 1);
+			GPIO_PinWrite(GPIO, 0, A, 0);
+			for (uint32_t i = 0; i <1000000; i++);
+			GPIO_PinWrite(GPIO, 0, A, 1);
+			GPIO_PinWrite(GPIO, 0, B, 0);
+			for (uint32_t i = 0; i <1000000; i++)
+			GPIO_PinWrite(GPIO, 0, B, 1);
+			GPIO_PinWrite(GPIO, 0, C, 0);
+			for (uint32_t i = 0; i <1000000; i++)
+			GPIO_PinWrite(GPIO, 0, C, 1);
+			GPIO_PinWrite(GPIO, 0, D, 0);
+			for (uint32_t i = 0; i <1000000; i++)
+			GPIO_PinWrite(GPIO, 0, D, 1);
+			GPIO_PinWrite(GPIO, 0, E, 0);
+			for (uint32_t i = 0; i <1000000; i++)
+			GPIO_PinWrite(GPIO, 0, E, 1);
+			GPIO_PinWrite(GPIO, 0, F, 0);
+			for (uint32_t i = 0; i <1000000; i++)
+			GPIO_PinWrite(GPIO, 0, F, 1);
+			GPIO_PinWrite(GPIO, 0, G, 0);
     	}
-
-		// Apago el segmento de manera secuenciada
-		GPIO_PinWrite(GPIO, 0, DIGITO, 1);
-		GPIO_PinWrite(GPIO, 0, DIGITA, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTA, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTE, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTI, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTO, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTU, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTAA, 1);
-		GPIO_PinWrite(GPIO, 0, SEGMENTEE, 1);
-		for (uint32_t i = 0; i <100000; i++);
-}
+    }
 
     return 0;
 }
